@@ -3,30 +3,28 @@ package com.swaglabs.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class MenuBar {
     WebDriver driver;
-    WebElement allItems;
-    WebElement about;
-    WebElement logout;
-    WebElement resetAppstate;
-    WebElement crossButton;
+    @FindBy(id = "inventory_sidebar_link")
+    private WebElement allItems;
+    @FindBy(id = "about_sidebar_link")
+    private WebElement about;
+    @FindBy(id = "logout_sidebar_link")
+    private WebElement logout;
+    @FindBy(id = "reset_sidebar_link")
+    private WebElement resetAppstate;
+    @FindBy(id = "react-burger-cross-btn")
+    private WebElement crossButton;
 
-    public MenuBar(WebDriver driver){
+    public MenuBar(WebDriver driver) {
         this.driver = driver;
-        initElements();
-    }
-    private void initElements() {
-        this.allItems = driver.findElement(By.id("inventory_sidebar_link"));
-        this.about = driver.findElement(By.id("about_sidebar_link"));
-        this.logout = driver.findElement(By.id("logout_sidebar_link"));
-        this.resetAppstate = driver.findElement(By.id("reset_sidebar_link"));
-        this.crossButton = driver.findElement(By.id("react-burger-cross-btn"));
+        PageFactory.initElements(driver, this);
     }
 
-    public String getMenuText(){
+    public String getMenuText() {
         return this.allItems.getText();
     }
-
-
 }

@@ -1,28 +1,24 @@
 package com.swaglabs.home;
 
-import com.swaglabs.login.BaseTest;
+import com.swaglabs.BaseTest;
 import com.swaglabs.pages.Home;
 import com.swaglabs.pages.ShopBasket;
-import com.swaglabs.pages.YourInfo;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static com.swaglabs.util.DriverHelper.getDriver;
+
 public class Basket extends BaseTest {
-    ShopBasket shopBasket;
 
     @Test
     public void testBasket() {
-        Home home = new Home(driver);
+        Home home = new Home(getDriver());
         home.addToCart();
-        home.clickBasket();
-        shopBasket = new ShopBasket(driver);
+        ShopBasket shopBasket = home.clickBasket();
         Assert.assertEquals(shopBasket.getBasketText(), "YOUR CART", "Text is incorrect");
-        Assert.assertTrue(shopBasket.isCardItemDisplayed(3));
-
+        Assert.assertTrue(shopBasket.isCardItemDisplayed(0));
 
 //        shopBasket.cartItem.get(0).click();
-
-
     }
 
 }

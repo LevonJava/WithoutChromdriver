@@ -1,18 +1,18 @@
 package com.swaglabs.login;
 
-import com.swaglabs.BaseDriver;
+import com.swaglabs.BaseTest;
 import com.swaglabs.pages.Home;
-import com.swaglabs.pages.Login;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TstLogin extends BaseDriver {
+import static com.swaglabs.util.DriverHelper.getDriver;
+
+public class TstLogin extends BaseTest {
     @Test
-    public void testLogin() {
-        Login login = new Login(driver);
-        login.enterUsername("standard_user");
-        login.enterPassword("secret_sauce");
-        Home homePage = login.login();
+    public void standartUserLogin() {
+        Home homePage = new Home(getDriver());
         Assert.assertEquals(homePage.getTitleText(), "PRODUCTS", "Title is incorrect");
     }
+
+
 }
