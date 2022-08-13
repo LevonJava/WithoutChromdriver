@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Testing Swaglabs">
+    <test name="Black Box">
+        <classes>
+            <class name="com.swaglabs.login.StandardUser"/>
+            <class name="com.swaglabs.login.LogedOutAndProblemUser"/>
+            <class name="com.swaglabs.home.Sort"/>
+            <class name="com.swaglabs.home.Basket"/>
+        </classes>
+    </test>
+</suite>

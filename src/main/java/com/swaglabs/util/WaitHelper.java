@@ -20,7 +20,6 @@ public class WaitHelper {
         WAIT = new WebDriverWait(getDriver(), Duration.ofSeconds(TIMEOUT));
     }
 
-
     public static void toBeClickable(WebElement element) {
         WAIT.until(ExpectedConditions.elementToBeClickable(element));
     }

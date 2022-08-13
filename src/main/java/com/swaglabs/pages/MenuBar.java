@@ -1,10 +1,12 @@
 package com.swaglabs.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import static com.swaglabs.util.MyWebElement.getText;
+import static com.swaglabs.util.MyWebElement.isDisplayed;
 
 public class MenuBar {
     WebDriver driver;
@@ -25,6 +27,11 @@ public class MenuBar {
     }
 
     public String getMenuText() {
-        return this.allItems.getText();
+        return getText(allItems);
+    }
+
+    public boolean isDisplayedAllItems(){
+        isDisplayed(allItems);
+        return true;
     }
 }

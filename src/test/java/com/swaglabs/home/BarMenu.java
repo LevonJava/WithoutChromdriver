@@ -12,9 +12,10 @@ public class BarMenu extends BaseTest {
     @Test
     public void testMenuBar() {
         Home home = new Home(getDriver());
-        home.menuBar.click();                /* menuBar-@ sarqel private */
-        MenuBar menuBar1 = new MenuBar(getDriver());
-        Assert.assertEquals(menuBar1.getMenuText(), "ALL ITEMS", "Text is incorrect");
+        home.clickMenubar();
+        MenuBar menuBar = new MenuBar(getDriver());
+        Assert.assertTrue(menuBar.isDisplayedAllItems());
+        Assert.assertEquals(menuBar.getMenuText(), "ALL ITEMS", "Text is incorrect");
     }
 
 }

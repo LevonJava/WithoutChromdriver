@@ -14,10 +14,10 @@ public class MyWebElement {
         element.click();
     }
 
-    public static void isDisplayed(WebElement element) {
+    public static boolean isDisplayed(WebElement element) {
         new WaitHelper().toBeClickable(element);
         WaitHelper.toBeVisible(element);
-        element.isDisplayed();
+        return element.isDisplayed();
     }
 
     public static String getText(WebElement element) {

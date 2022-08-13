@@ -5,13 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.swaglabs.util.MyWebElement.click;
+import static com.swaglabs.util.MyWebElement.getText;
 
-public class Home {
+public class Home{
     private WebDriver driver;
-    private WebDriverWait wait;
 
     public Home(WebDriver driver) {
         this.driver = driver;
@@ -25,9 +24,11 @@ public class Home {
     @FindBy(name = "add-to-cart-sauce-labs-fleece-jacket")
     private WebElement sauceFleeceJacket;
     @FindBy(id = "shopping_cart_container")
-    private WebElement shoppingCartLink;
+    private WebElement shoppingCartLink;             /*stex gorc ka anelu*/
     @FindBy(xpath = "//button[@id = 'react-burger-menu-btn']")
-    public WebElement menuBar;                                       /* menuBar-@ sarqel private  u grel metod*/
+    private WebElement menuBar;                     /*stex gorc ka anelu*/
+    @FindBy(id = "logout_sidebar_link")
+    private WebElement logout;
     @FindBy(className = "product_sort_container")
     private WebElement sortContainer;
 
@@ -41,8 +42,17 @@ public class Home {
         return new ShopBasket(driver);
     }
 
+    public void logOut() {
+        click(menuBar);
+        click(logout);
+    }
+
+    public void clickMenubar() {
+        click(menuBar);
+    }
+
     public String getTitleText() {
-        return this.title.getText();
+        return getText(title);
     }
 
     public void sortLow() {

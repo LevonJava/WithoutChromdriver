@@ -13,6 +13,10 @@ public class DriverHelper {
 
     }
 
+    public static void setDriver(WebDriver driver) {
+        DriverHelper.driver = driver;
+    }
+
     private static ChromeOptions setOptions() {
         WebDriverManager.chromedriver().setup();
         options = new ChromeOptions();
@@ -24,7 +28,6 @@ public class DriverHelper {
         if (driver == null) {
             driver = new ChromeDriver(setOptions());
         }
-
         return driver;
     }
 
